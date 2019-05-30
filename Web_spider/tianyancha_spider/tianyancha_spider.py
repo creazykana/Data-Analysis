@@ -14,11 +14,11 @@ import time
 requests.packages.urllib3.disable_warnings()#解决requests因忽略证书验证而报错
 
 def license_spide(license_number):
-    headers = {"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
-               "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36",
+    headers = {"Accept": "text/html,application*******",
+               "User-Agent": "Mozilla/5.0 ******",
                "Referer": "https://www.tianyancha.com",
                "Host": "www.tianyancha.com"}
-    cookies = {"auth_token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMzYzMjkzOTEwOCIsImlhdCI6MTU1OTAzNzI2MiwiZXhwIjoxNTkwNTczMjYyfQ.SsKPPuI5pw3X5rdlravsjwhC8RqADrXIjO-ywrvot29Ou8hjz3zpQcJisxMPElhPzGHHv_UsiDq2tlHnwYxHcg"}
+    cookies = {"auth_token":"eyJhbGciOiJIUzUxMi******"}
     searchDict = {"key":license_number}
     
     s = requests.get('https://www.tianyancha.com/search', headers=headers, params=searchDict, cookies=cookies, verify=False)

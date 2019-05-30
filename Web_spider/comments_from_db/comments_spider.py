@@ -40,4 +40,28 @@ for i in range(int(4700/20)):
 df.to_excel('comment_fromdb.xlsx')
 
 
+# =============================================================================
+# 糗事百科
+# =============================================================================
+import requests
+from bs4 import BeautifulSoup
+import re
+import pandas as pd
+import numpy as np
+import os
+import sys
+import time
+import pytesser3
+from PIL import ImageGrab
+os.chdir(r'C:/Users/hongzk/Desktop')
+print (pytesser3.image_file_to_string('ttt.png'))
+target = 'https://www.qiushibaike.com/text/'
+r = requests.get(target)
+html = r.text
+parseHtml = BeautifulSoup(html)
+contents = parseHtml.find('div', attrs={'id': 'content-left'}).find_all("div", attrs={"class":re.compile("article block untagged mb15.*")})
+for content in contents:
+    message = content.find("a").find("div").find("span").text
+
+
 
